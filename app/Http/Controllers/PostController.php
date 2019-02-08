@@ -43,7 +43,17 @@ class PostController extends Controller
 
         //save the form data to database
 
+        $post = new Post;
+        $post->title = $request->title;
+        $post->description = $request->description;
+        $post->user_id = 1;
+        $post->slug = str_slug($request->title);
+        $post->save();
+
         //return view or response
+
+        return redirect()->back();
+        // return redirect()->route('post.create');
     }
 
     /**
