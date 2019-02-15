@@ -29,6 +29,7 @@
                   <tr>
                     <th>Action</th>
                     <th>Title</th>
+                    <th>Description</th>
                     <th>Author</th>
                     <th>Category</th>
                     <th>Date</th>
@@ -50,6 +51,7 @@
                         </a>
                     </td>
                     <td>{{ $post->title}}</td>
+                    <td>{{ $post->description}}</td>
                     <td>Nafisha Banu</td>
                     <td>Tech</td>
                     <td><abbr title="{{$post->created_at}}">{{$post->created_at}} </abbr>| <span class="label label-info">Schedule</span></td>
