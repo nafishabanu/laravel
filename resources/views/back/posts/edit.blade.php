@@ -3,12 +3,12 @@
 @section('contents')
 <section class="content-header">
   <h1>
-    Add New Post
+    Edit Post
   </h1>
   <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-    <li><a href="{{route('post.index')}}">Post</a></li>
-    <li class="active">Add New Post</li>
+  <li><a href="{{route('post.index')}}">Post</a></li>
+    <li class="active">Edit Post</li>
   </ol>
 </section>
 
@@ -27,12 +27,13 @@
               </div>
           @endif
               <!-- form start -->
-          <form role="form" action="{{route('post.store')}}" method="POST">
+          <form role="form" action="{{route('post.update',$post->id)}}" method="POST">
             @csrf
+            @method('PUT')
                 <div class="box-body">
                   <div class="form-group">
                     <label for="title">Title</label>
-                    <input type="text" name="title" value="{{old('title')}}" placeholder="Enter Title here" id="title" class="form-control">
+                    <input type="text" name="title" value="{{$post->title}}" placeholder="Enter Title here" id="title" class="form-control">
                   </div>
                   {{-- <div class="form-group">
                     <label for="slug">Slug</label>
@@ -46,13 +47,13 @@
                   </div> --}}
                   <div class="form-group">
                     <label for="description">Description</label>
-                    <textarea name="description" id="description" rows="10" class="form-control">{{old('description')}}</textarea>
+                    <textarea name="description" id="description" rows="10" class="form-control">{{$post->description}}</textarea>
                   </div>
                 </div>
                 <!-- /.box-body -->
 
                 <div class="box-footer">
-                  <button class="btn btn-primary" type="submit">Submit</button>
+                  <button class="btn btn-primary" type="submit">Update</button>
                 </div>
               </form>
             </div>

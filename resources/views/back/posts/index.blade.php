@@ -35,48 +35,26 @@
                   </tr>
               </thead>
               <tbody>
+                @foreach($posts as $post)
+                
+                
                   <tr>
                     <td width="70">
-                        <a title="Edit" class="btn btn-xs btn-default edit-row" href="#">
+                    <a title="Edit" class="btn btn-xs btn-default edit-row" 
+                    href="{{route('post.edit', $post -> id)}}">
                             <i class="fa fa-edit"></i>
                         </a>
+                        
                         <a title="Delete" class="btn btn-xs btn-danger delete-row" href="#">
                             <i class="fa fa-times"></i>
                         </a>
                     </td>
-                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    <td>John Doe</td>
-                    <td>Programming</td>
-                    <td><abbr title="2016/12/04 6:32:00 PM">2016/12/04</abbr> | <span class="label label-info">Schedule</span></td>
+                    <td>{{ $post->title}}</td>
+                    <td>Nafisha Banu</td>
+                    <td>Tech</td>
+                    <td><abbr title="{{$post->created_at}}">{{$post->created_at}} </abbr>| <span class="label label-info">Schedule</span></td>
                   </tr>
-                  <tr>
-                    <td width="70">
-                        <a title="Edit" class="btn btn-xs btn-default edit-row" href="#">
-                            <i class="fa fa-edit"></i>
-                        </a>
-                        <a title="Delete" class="btn btn-xs btn-danger delete-row" href="#">
-                            <i class="fa fa-times"></i>
-                        </a>
-                    </td>
-                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    <td>John Doe</td>
-                    <td>Programming</td>
-                    <td><abbr title="2016/12/04 6:32:00 PM">2016/12/04</abbr> | <span class="label label-warning">Draft</span></td>
-                  </tr>
-                  <tr>
-                    <td width="70">
-                        <a title="Edit" class="btn btn-xs btn-default edit-row" href="#">
-                            <i class="fa fa-edit"></i>
-                        </a>
-                        <a title="Delete" class="btn btn-xs btn-danger delete-row" href="#">
-                            <i class="fa fa-times"></i>
-                        </a>
-                    </td>
-                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    <td>John Doe</td>
-                    <td>Programming</td>
-                    <td><abbr title="2016/12/04 6:32:00 PM">2016/12/04</abbr> | <span class="label label-success">Published</span></td>
-                  </tr>
+                  @endforeach
               </tbody>
             </table>
           </div>
