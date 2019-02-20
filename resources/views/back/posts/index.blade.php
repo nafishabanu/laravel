@@ -45,10 +45,14 @@
                     href="{{route('post.edit', $post -> id)}}">
                             <i class="fa fa-edit"></i>
                         </a>
-                        
-                        <a title="Delete" class="btn btn-xs btn-danger delete-row" href="#">
-                            <i class="fa fa-times"></i>
-                        </a>
+                      <form action="{{route('post.destroy',$post->id)}}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" title="Delete" class="btn btn-xs btn-danger delete-row">
+                                                  <i class="fa fa-times"></i>
+                        </button>
+                      </form>
+                      
                     </td>
                     <td>{{ $post->title}}</td>
                     <td>{{ $post->description}}</td>
