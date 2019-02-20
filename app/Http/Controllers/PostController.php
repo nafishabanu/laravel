@@ -86,9 +86,25 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, $id)
     {
-        dd($request->all());
+
+        //validate the form data
+        $validatedData = $request->validate([
+            'title' => 'required|unique:posts',
+            'description' => 'required',
+        ]);
+
+
+
+
+        //find the post id fron database
+        $post = Post::findorFail($id);
+        //if found update the post
+        $post->title = $request->title;
+        $post->description = $request->description;
+        $post->save();
+        return redirect()->route('post.index');
     }
 
     /**

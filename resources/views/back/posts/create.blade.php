@@ -53,6 +53,7 @@
 
                 <div class="box-footer">
                   <button class="btn btn-primary" type="submit">Submit</button>
+                  <button class="btn btn-primary" type="submit">Cancel</button>
                 </div>
               </form>
             </div>
