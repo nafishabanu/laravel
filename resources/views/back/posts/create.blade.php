@@ -17,15 +17,7 @@
     <div class="row">
       <div class="col-xs-9">
           <div class="box">
-              @if ($errors->any())
-              <div class="alert alert-danger">
-                  <ul>
-                      @foreach ($errors->all() as $error)
-                          <li>{{ $error }}</li>
-                      @endforeach
-                  </ul>
-              </div>
-          @endif
+           
               <!-- form start -->
           <form role="form" action="{{route('post.store')}}" method="POST">
             @csrf

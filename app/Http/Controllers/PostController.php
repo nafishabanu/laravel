@@ -38,8 +38,8 @@ class PostController extends Controller
     {
         //validate the form data
         $validatedData = $request->validate([
-            'title' => 'required|unique:posts',
-            'description' => 'required|unique:posts',
+            'title' => 'required',
+            'description' => 'required',
         ]);
 
         //save the form data to database
@@ -53,7 +53,7 @@ class PostController extends Controller
 
         //return view or response
 
-        return redirect()->back();
+        return redirect()->route('post.create')->with('success', 'Successfully Created');
         // return redirect()->route('post.create');
     }
 
@@ -91,12 +91,9 @@ class PostController extends Controller
 
         //validate the form data
         $validatedData = $request->validate([
-            'title' => 'required|unique:posts',
+            'title' => 'required',
             'description' => 'required',
         ]);
-
-
-
 
         //find the post id fron database
         $post = Post::findorFail($id);
@@ -104,7 +101,7 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->description = $request->description;
         $post->save();
-        return redirect()->route('post.index');
+        return redirect()->route('post.index')->with('success', 'Successfully Updated');;
     }
 
     /**
@@ -116,6 +113,6 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Successfully Deleted');;
     }
 }
