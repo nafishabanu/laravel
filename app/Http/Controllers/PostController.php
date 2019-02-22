@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class PostController extends Controller
 {
@@ -91,7 +92,7 @@ class PostController extends Controller
 
         //validate the form data
         $validatedData = $request->validate([
-            'title' => 'required',
+            'title' => 'required', Rule::unique('posts')->ignore($id),
             'description' => 'required',
         ]);
 
@@ -101,7 +102,7 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->description = $request->description;
         $post->save();
-        return redirect()->route('post.index')->with('success', 'Successfully Updated');;
+        return redirect()->route('post.index')->with('success', 'Successfully Updated');
     }
 
     /**
@@ -113,6 +114,6 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
-        return redirect()->back()->with('success', 'Successfully Deleted');;
+        return redirect()->back()->with('success', 'Successfully Deleted');
     }
 }
