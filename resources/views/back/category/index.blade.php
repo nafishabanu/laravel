@@ -8,7 +8,7 @@
         <div class="box">
             <div class="box-header">
                 <div class="pull-left">
-                <a id="add-button" title="Add New" class="btn btn-success" href="{{route('post.create')}}"><i class="fa fa-plus-circle"></i> Add New</a>
+                <a id="add-button" title="Add New" class="btn btn-success" href="{{route('category.create')}}"><i class="fa fa-plus-circle"></i> Add New</a>
                 </div>
                 <div class="pull-right">
                     <form accept-charset="utf-8" method="post" class="form-inline" id="form-filter" action="#">
@@ -28,24 +28,24 @@
               <thead>
                   <tr>
                     <th>Action</th>
-                    <th>Title</th>
-                    <th>Description</th>
-                    <th>Author</th>
+                    {{-- <th>Title</th> --}}
+                    {{-- <th>Description</th> --}}
+                    {{-- <th>Author</th> --}}
                     <th>Category</th>
                     <th>Date</th>
                   </tr>
               </thead>
               <tbody>
-                @foreach($posts as $post)
+                @foreach($category as $category)
                 
                 
                   <tr>
                     <td width="70">
                     <a title="Edit" class="btn btn-xs btn-default edit-row" 
-                    href="{{route('post.edit', $post -> id)}}">
+                    href="{{route('category.edit', $category -> id)}}">
                             <i class="fa fa-edit"></i>
                         </a>
-                      <form action="{{route('post.destroy',$post->id)}}" method="post">
+                      <form action="{{route('category.destroy',$category->id)}}" method="post">
                         @csrf
                         @method('DELETE')
                         <button type="submit" title="Delete" class="btn btn-xs btn-danger delete-row">
@@ -54,11 +54,11 @@
                       </form>
                       
                     </td>
-                    <td>{{ $post->title}}</td>
-                    <td>{{ $post->description}}</td>
-                    <td>Nafisha Banu</td>
-                    <td>Tech</td>
-                    <td><abbr title="{{$post->created_at}}">{{$post->created_at}} </abbr>| <span class="label label-info">Schedule</span></td>
+                    <td>{{ $category->title}}</td>
+                    {{-- <td>{{ $post->description}}</td> --}}
+                    {{-- <td>Nafisha Banu</td> --}}
+                    {{-- <td>Tech</td> --}}
+                    <td><abbr title="{{$category->created_at}}">{{$category->created_at}} </abbr>| <span class="label label-info">Schedule</span></td>
                   </tr>
                   @endforeach
               </tbody>

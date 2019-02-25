@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -24,6 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
+
         return view('back.category.create', compact('category'));
     }
 
@@ -35,7 +37,16 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required|unique:categories',
+        ]);
+
+        Category::create([
+            'title' => $request->title,
+        ]);
+
+        return redirect()->back()->with('success', 'Created Successfully');
+
     }
 
     /**
@@ -57,7 +68,7 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('back.category.edit', compact('category'));
     }
 
     /**

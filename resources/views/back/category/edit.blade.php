@@ -7,8 +7,8 @@
   </h1>
   <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-  <li><a href="{{route('post.index')}}">Post</a></li>
-    <li class="active">Edit Post</li>
+  <li><a href="{{route('category.index')}}">Category</a></li>
+    <li class="active">Edit Category</li>
   </ol>
 </section>
 
@@ -19,13 +19,13 @@
           <div class="box">
           
               <!-- form start -->
-          <form role="form" action="{{route('post.update',$post->id)}}" method="POST">
+          <form role="form" action="{{route('category.update',$category->id)}}" method="POST">
             @csrf
             @method('PUT')
                 <div class="box-body">
                   <div class="form-group">
                     <label for="title">Title</label>
-                    <input type="text" name="title" value="{{$post->title}}" placeholder="Enter Title here" id="title" class="form-control">
+                    <input type="text" name="title" value="{{$category->title}}" placeholder="Enter Title here" id="title" class="form-control">
                   </div>
                   {{-- <div class="form-group">
                     <label for="slug">Slug</label>
@@ -37,11 +37,11 @@
                     <label for="body">Excerpt</label>
                     <textarea name="excerpt" id="excerpt" rows="5" class="form-control"></textarea>
                   </div> --}}
-                  <div class="form-group">
+                  {{-- <div class="form-group">
                     <label for="description">Description</label>
                     <textarea name="description" id="description" rows="10" class="form-control">{{$post->description}}</textarea>
                   </div>
-                </div>
+                </div> --}}
                 <!-- /.box-body -->
 
                 <div class="box-footer">
