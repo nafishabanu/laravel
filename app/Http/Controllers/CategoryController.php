@@ -41,9 +41,11 @@ class CategoryController extends Controller
             'title' => 'required|unique:categories',
         ]);
 
-        Category::create([
-            'title' => $request->title,
-        ]);
+        // Category::create([
+        //     'title' => $request->title,
+        // ]);
+
+        Category::create($request->except('_token'));
 
         return redirect()->back()->with('success', 'Created Successfully');
 
@@ -68,6 +70,7 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
+        $category = Category::find($id);
         return view('back.category.edit', compact('category'));
     }
 
@@ -80,7 +83,16 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // $category = Category::find($id);
+        // $category->title = $request->title;
+        // $category->update();
+
+        // Category::where('id',$id)->update($request-except(['_token','_method']));
+
+        Category::where('id', $id)->update(['title' => $request->title,
+        ]);
+
+        return redirect()->route('category.index')->with('success', 'Updated Successfully');
     }
 
     /**

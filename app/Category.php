@@ -10,3 +10,9 @@ class Category extends Model
         'title',
     ];
 }
+
+// {
+//     protected $guarded = [
+//         'created_at','updated_at',
+//     ];
+// }
