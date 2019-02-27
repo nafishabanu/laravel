@@ -32,6 +32,7 @@
                     {{-- <th>Description</th> --}}
                     {{-- <th>Author</th> --}}
                     <th>Category</th>
+                    <th>Status</th>
                     <th>Date</th>
                   </tr>
               </thead>
@@ -55,6 +56,7 @@
                       
                     </td>
                     <td>{{ $category->title}}</td>
+                    <td>{{ $category->status}}</td>
                     {{-- <td>{{ $post->description}}</td> --}}
                     {{-- <td>Nafisha Banu</td> --}}
                     {{-- <td>Tech</td> --}}

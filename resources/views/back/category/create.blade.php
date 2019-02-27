@@ -26,6 +26,13 @@
                     <label for="title">Title</label>
                     <input type="text" name="title" value="{{old('title')}}" placeholder="Enter Title here" id="title" class="form-control">
                   </div>
+
+                  <div class="form-group">
+                  <label for="title">Select</label>
+                  <select class="browser-default form-control custom-select">
+                      <option value="1">Enable</option>
+                      <option value="2">Disable</option>
+                    </select>
                   
                  
                 </div>
