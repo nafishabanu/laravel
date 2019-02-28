@@ -14,7 +14,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $category = category::all();
+        $category = category::latest()->get();
         return view('back.category.index', compact('category'));
     }
 
@@ -87,9 +87,11 @@ class CategoryController extends Controller
         // $category->title = $request->title;
         // $category->update();
 
-        // Category::where('id',$id)->update($request-except(['_token','_method']));
+        // Category::where('id', $id)->update($request - except(['_token', '_method']));
 
-        Category::where('id', $id)->update(['title' => $request->title,
+        Category::where('id', $id)->update([
+            'title' => $request->title,
+            'status' => $request->status,
         ]);
 
         return redirect()->route('category.index')->with('success', 'Updated Successfully');

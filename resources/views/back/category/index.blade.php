@@ -56,7 +56,17 @@
                       
                     </td>
                     <td>{{ $category->title}}</td>
-                    <td>{{ $category->status}}</td>
+                    {{-- <td>{{ $category->status}}</td> --}}
+
+                    {{-- <td>
+                    @if($category->status == 1)                
+                      Enable
+                    @else
+                      Disable
+                    @endif
+                    </td> --}}
+
+                  <td>{{$category->status==1?'Enable':'Disable'}}</td>
                     {{-- <td>{{ $post->description}}</td> --}}
                     {{-- <td>Nafisha Banu</td> --}}
                     {{-- <td>Tech</td> --}}

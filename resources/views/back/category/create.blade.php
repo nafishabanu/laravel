@@ -7,7 +7,7 @@
   </h1>
   <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-    <li><a href="{{route('post.index')}}">Post</a></li>
+    <li><a href="{{route('category.index')}}">Post</a></li>
     <li class="active">Add New Category</li>
   </ol>
 </section>
@@ -28,14 +28,14 @@
                   </div>
 
                   <div class="form-group">
-                  <label for="title">Select</label>
-                  <select class="browser-default form-control custom-select">
+                  <label for="status">Select</label>
+                  <select class="form-control" id="select" name="status">
                       <option value="1">Enable</option>
-                      <option value="2">Disable</option>
-                    </select>
-                  
-                 
+                      <option value="0" selected="">Disable</option>
+                  </select>
                 </div>
+
+                
                 <!-- /.box-body -->
 
                 <div class="box-footer">
