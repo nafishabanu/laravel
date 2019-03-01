@@ -37,7 +37,7 @@
                   </tr>
               </thead>
               <tbody>
-                @foreach($category as $category)
+                @forelse($category as $category)
                 
                 
                   <tr>
@@ -72,7 +72,13 @@
                     {{-- <td>Tech</td> --}}
                     <td><abbr title="{{$category->created_at}}">{{$category->created_at}} </abbr>| <span class="label label-info">Schedule</span></td>
                   </tr>
-                  @endforeach
+                  @empty
+                  <tr>
+                    <td colspan="4">
+                      <p class="text-info text-center">No records found</p>
+                    </td>
+                  </tr> 
+                  @endforelse
               </tbody>
             </table>
           </div>

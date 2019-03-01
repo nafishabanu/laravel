@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -26,7 +27,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('back.posts.create');
+        $categories = Category::all();
+        return view('back.posts.create', compact('categories'));
     }
 
     /**
@@ -37,11 +39,14 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+
         //validate the form data
         $validatedData = $request->validate([
             'title' => 'required',
             'description' => 'required',
         ]);
+
+        dd($request->all());
 
         //save the form data to database
 

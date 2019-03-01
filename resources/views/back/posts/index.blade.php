@@ -36,9 +36,9 @@
                   </tr>
               </thead>
               <tbody>
-                @foreach($posts as $post)
-                
-                
+
+
+                @forelse($posts as $post)
                   <tr>
                     <td width="70">
                     <a title="Edit" class="btn btn-xs btn-default edit-row" 
@@ -60,7 +60,14 @@
                     <td>Tech</td>
                     <td><abbr title="{{$post->created_at}}">{{$post->created_at}} </abbr>| <span class="label label-info">Schedule</span></td>
                   </tr>
-                  @endforeach
+                  @empty
+                <tr>
+                  <td colspan="6">
+                    <p class="text-info text-center">No records found</p>
+                  </td>
+                </tr>                      
+                  @endforelse
+
               </tbody>
             </table>
           </div>
