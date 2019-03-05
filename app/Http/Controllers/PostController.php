@@ -44,15 +44,17 @@ class PostController extends Controller
         $validatedData = $request->validate([
             'title' => 'required',
             'description' => 'required',
+            'category_id' => 'required',
         ]);
 
-        dd($request->all());
+        // dd($request->all());
 
         //save the form data to database
 
         $post = new Post;
         $post->title = $request->title;
         $post->description = $request->description;
+        $post->category_id = $request->category_id;
         $post->user_id = 1;
         $post->slug = str_slug($request->title);
         $post->save();

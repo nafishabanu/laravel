@@ -47,7 +47,7 @@
                    @foreach($categories as $category)
                     <div class="radio">
                        <label>
-                       <input type="radio" name="category" id="category-1" value="{{$category->id}}">
+                       <input type="radio" name="category_id" id="category-1" value="{{$category->id}}">
                          {{$category->title}}
                       </label>
                    </div>
