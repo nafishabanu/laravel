@@ -1,6 +1,7 @@
 
 @extends('back.layouts.master')
 @section('contents')
+@if(count($categories)>0)
 <section class="content-header">
   <h1>
     Add New Post
@@ -132,5 +133,13 @@
     </div>
   <!-- ./row -->
 </section>
+
+@else
+<div class="alert alert-danger" role="alert">
+  <p>You must have at least one Category</p>
+<p><a href="{{route('category.create')}}">Create Category</a></p>
+</div>
+
+@endif
 
 @stop

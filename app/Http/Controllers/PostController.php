@@ -16,7 +16,12 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        // lazy loading
+        // $posts = Post::all();
+
+        // eagle loading
+        $posts = Post::with('category')->get();
+        // dd($posts);
         return view('back.posts.index', compact('posts'));
     }
 

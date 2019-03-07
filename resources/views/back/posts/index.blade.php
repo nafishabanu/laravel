@@ -57,7 +57,7 @@
                     <td>{{ $post->title}}</td>
                     <td>{{ $post->description}}</td>
                     <td>Nafisha Banu</td>
-                    <td>{{ $post->category}}</td>
+                    <td>{{ $post->category->title}}</td>
                     <td><abbr title="{{$post->created_at}}">{{$post->created_at}} </abbr>| <span class="label label-info">Schedule</span></td>
                   </tr>
                   @empty
