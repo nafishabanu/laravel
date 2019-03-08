@@ -54,7 +54,7 @@
                       </form>
                       
                     </td>
-                    <td>{{ $post->title}}</td>
+                  <td><a href="{{route('post.show',$post->id)}}">{{ $post->title}}</a></td>
                     <td>{{ $post->description}}</td>
                     <td>Nafisha Banu</td>
                     <td>{{ $post->category->title}}</td>

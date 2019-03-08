@@ -32,7 +32,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
+        $categories = Category::where('status', 1)->get();
         return view('back.posts.create', compact('categories'));
     }
 
@@ -78,7 +78,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return view('back.posts.show', compact('post'));
     }
 
     /**

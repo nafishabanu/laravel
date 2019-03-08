@@ -107,6 +107,7 @@ class CategoryController extends Controller
     {
         $category = Category::findorFail($id);
         $category->delete();
+        $category->posts()->delete();
         return redirect()->route('category.index')->with('success', 'Deleted Successfully');
 
     }
