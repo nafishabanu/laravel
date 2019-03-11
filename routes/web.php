@@ -32,14 +32,14 @@ Route::get('/', function () {
  *
  */
 
-Route::get('/admin', function () {
-    return view('back.dashboard');
-    // return view('back.layouts.master');
-});
 Route::prefix('admin')->group(function () {
     // Route::resource('post', 'PostController');
     // Route::resource('category', 'CategoryController');
 
+    Route::get('/', function () {
+        return view('back.dashboard');
+        // return view('back.layouts.master');
+    })->middleware('auth');
     Route::resources([
         'post' => 'PostController',
         'category' => 'CategoryController',
@@ -52,3 +52,7 @@ Route::prefix('admin')->group(function () {
     // Route::put('posts/{post}', 'PostController@update')->name('post.update');
     // Route::delete('posts/{post}', 'PostController@destroy')->name('post.destroy');
 });
+
+Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');
