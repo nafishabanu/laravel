@@ -20,9 +20,11 @@
  *
  *
  */
-Route::get('/', function () {
-    return view('front.pages.index');
-});
+// Route::get('/', function () {
+//     return view('front.pages.index');
+// });
+
+Route::get('/', 'HomeController@index');
 
 /**
  *
@@ -32,14 +34,19 @@ Route::get('/', function () {
  *
  */
 
-Route::prefix('admin')->group(function () {
-    // Route::resource('post', 'PostController');
-    // Route::resource('category', 'CategoryController');
-
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/', function () {
         return view('back.dashboard');
-        // return view('back.layouts.master');
-    })->middleware('auth');
+    });
+
+// Route::prefix('admin')->group(function () {
+    //     // Route::resource('post', 'PostController');
+    //     // Route::resource('category', 'CategoryController');
+
+//     Route::get('/', function () {
+    //         return view('back.dashboard');
+    //         // return view('back.layouts.master');
+    //     });
     Route::resources([
         'post' => 'PostController',
         'category' => 'CategoryController',

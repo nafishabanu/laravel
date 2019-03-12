@@ -30,7 +30,7 @@
                     <th>Action</th>
                     <th>Title</th>
                     <th>Description</th>
-                    <th>Author</th>
+                    {{-- <th>Author</th> --}}
                     <th>Category</th>
                     <th>Date</th>
                   </tr>
@@ -56,7 +56,7 @@
                     </td>
                   <td><a href="{{route('post.show',$post->id)}}">{{ $post->title}}</a></td>
                     <td>{{ $post->description}}</td>
-                    <td>Nafisha Banu</td>
+                    {{-- <td>{{$post->author}}</td> --}}
                     <td>{{ $post->category->title}}</td>
                     <td><abbr title="{{$post->created_at}}">{{$post->created_at}} </abbr>| <span class="label label-info">Schedule</span></td>
                   </tr>
